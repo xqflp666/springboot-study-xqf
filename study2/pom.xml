@@ -9,20 +9,20 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>top.xqf.springboot</groupId>
-	<artifactId>study</artifactId>
-	<version>1.0.0</version>
-	<name>springboot_study</name>
-	<description>springboot学习</description>
+	<artifactId>study2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>study2</name>
+	<description>soringboot学习2</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 
-	<!--  springboot web项目依赖	 -->
-<dependency>
-<groupId>org.springframework.boot</groupId>
-<artifactId>spring-boot-starter-web</artifactId>
-</dependency>
+		<!--  springboot web项目依赖	 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
 		<!-- mysql驱动 -->
 		<dependency>
@@ -43,6 +43,20 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- api文档工具 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+
+		<!-- api文档工具增强 -->
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>knife4j-spring-boot-starter</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -54,13 +68,15 @@
 		</plugins>
 	</build>
 
+
+
 	<repositories>
-<!--  阿里云远程仓库地址  -->
-<repository>
-<id>aliyun</id>
-<name>aliyun</name>
-<url>https://maven.aliyun.com/repository/public/</url>
-</repository>
-</repositories>
+		<!--  阿里云远程仓库地址  -->
+		<repository>
+			<id>aliyun</id>
+			<name>aliyun</name>
+			<url>https://maven.aliyun.com/repository/public/</url>
+		</repository>
+	</repositories>
 
 </project>

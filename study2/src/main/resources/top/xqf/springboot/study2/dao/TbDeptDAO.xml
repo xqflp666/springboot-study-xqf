@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.xqf.springboot.study2.dao.TbDeptDAO">
+
+    <select id="querAll" parameterType="TbDept" resultType="TbDept">
+        select * from tb_dept
+        <where>
+          <if test="deptName!=null and deptName!=''.toString()">
+              and dept_name like #{deptName}
+          </if>
+        </where>
+    </select>
+
+    <insert id="add" parameterType="TbDept" useGeneratedKeys="true" keyProperty="deptId">
+        insert into tb_dept(dept_name,dept_info) values(#{deptName},#{deptInfo})
+    </insert>
+
+</mapper>
