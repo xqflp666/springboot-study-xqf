@@ -22,20 +22,37 @@ public class DeptServicelmpl implements DeptService {
     }
 
     @Override
-    public BaseResult<List<TbDept>> query(TbDept dept) throws Exception{
+    public BaseResult<List<TbDept>> query(TbDept dept) throws Exception {
         dept = Optional.ofNullable(dept).orElse(new TbDept());
         //部门名称的模糊查询
-        if(StringUtils.hasText(dept.getDeptName())){
-            dept.setDeptName(String.format("%%%s%%",dept.getDeptName()));
+        if (StringUtils.hasText(dept.getDeptName())) {
+            dept.setDeptName(String.format("%%%s%%", dept.getDeptName()));
         }
-        List<TbDept> list=tbDeptDAO.querAll(dept);
-        BaseResult<List<TbDept>> result=new BaseResult<>();
+        List<TbDept> list = tbDeptDAO.querAll(dept);
+        BaseResult<List<TbDept>> result = new BaseResult<>();
         result.setCode(200);
         result.setSuccess(true);
         result.setData(list);
         result.setMessage("");
         return result;
-
     }
 
+    @Override
+    public BaseResult<TbDept> add(TbDept dept) throws Exception{
+        BaseResult<TbDept> result=new BaseResult<>();
+        int n=tbDeptDAO.add(dept);
+        if(n!=1){
+            result.setCode(500);
+            result.setSuccess(false);
+            result.setMessage("添加失败");
+            result.setData(null);
+            return result;
+        }
+        result.setCode(200);
+        result.setSuccess(true);
+        result.setMessage("添加成功");
+        result.setData(dept);
+        return result;
+    }
 }
+

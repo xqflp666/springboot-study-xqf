@@ -34,4 +34,14 @@ public class DeptController {
         return deptService.query(dept);
     }
 
+    @ApiOperation(value ="部门增加",notes = "部门增加功能接口")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "deptName",value = "部门名称",dataTypeClass = String.class ,required = false),
+            @ApiImplicitParam(name = "deptInfo",value = "部门描述",dataTypeClass = String.class ,required = false)
+    })
+    @GetMapping("/add")
+    public BaseResult<TbDept> add(TbDept dept) throws Exception{
+        return deptService.add(dept);
+    }
+
 }

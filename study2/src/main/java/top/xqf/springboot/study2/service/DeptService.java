@@ -13,4 +13,12 @@ public interface DeptService {
      * @throws Exception 处理发生异常
      */
     BaseResult<List<TbDept>> query(TbDept dept) throws Exception;
+
+    /**
+     * 添加部门列表
+     * @param dept 部门参数
+     * @return 部门列表
+     * @throws Exception 处理发生异常
+     */
+    BaseResult<TbDept> add(TbDept dept) throws Exception;
 }
