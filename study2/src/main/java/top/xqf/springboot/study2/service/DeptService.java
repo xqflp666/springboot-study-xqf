@@ -21,4 +21,6 @@ public interface DeptService {
      * @throws Exception 处理发生异常
      */
     BaseResult<TbDept> add(TbDept dept) throws Exception;
+
+    BaseResult<Integer> delete(TbDept dept) throws Exception;
 }

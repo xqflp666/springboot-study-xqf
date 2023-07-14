@@ -17,4 +17,9 @@
         insert into tb_dept(dept_name,dept_info) values(#{deptName},#{deptInfo})
     </insert>
 
+    <delete id="delete" parameterType="TbDept">
+        delete from tb_dept
+        where dept_id=#{deptId}
+    </delete>
+
 </mapper>

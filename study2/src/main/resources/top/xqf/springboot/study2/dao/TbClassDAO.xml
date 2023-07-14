@@ -17,4 +17,10 @@
         insert into tb_class(cname,cinfo) values(#{cname},#{cinfo})
     </insert>
 
+    <delete id="delete" parameterType="TbClass">
+        delete from tb_class
+        where cid=#{cid}
+    </delete>
+
+
 </mapper>

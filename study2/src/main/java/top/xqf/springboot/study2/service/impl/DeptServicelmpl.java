@@ -39,20 +39,25 @@ public class DeptServicelmpl implements DeptService {
 
     @Override
     public BaseResult<TbDept> add(TbDept dept) throws Exception{
+        int count=tbDeptDAO.add(dept);
         BaseResult<TbDept> result=new BaseResult<>();
-        int n=tbDeptDAO.add(dept);
-        if(n!=1){
-            result.setCode(500);
-            result.setSuccess(false);
-            result.setMessage("添加失败");
-            result.setData(null);
-            return result;
-        }
-        result.setCode(200);
-        result.setSuccess(true);
-        result.setMessage("添加成功");
+        result.setCode(count==1?200:500);
+        result.setSuccess(count==1);
+        result.setMessage(count==1?"增加成功":"增加失败");
         result.setData(dept);
         return result;
     }
-}
+
+    @Override
+    public BaseResult<Integer> delete(TbDept dept) throws Exception{
+        int count=tbDeptDAO.delete(dept);
+        BaseResult<Integer> result=new BaseResult<>();
+        result.setCode(count==1?200:500);
+        result.setSuccess(count==1);
+        result.setMessage(count==1?"删除成功":"删除失败");
+        result.setData(count);
+        return result;
+    }
+    }
+
 

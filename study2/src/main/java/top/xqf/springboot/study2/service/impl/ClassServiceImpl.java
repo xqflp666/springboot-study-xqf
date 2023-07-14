@@ -55,4 +55,15 @@ public class ClassServiceImpl implements ClassService {
         return result;
     }
 
+    @Override
+    public BaseResult<Integer> delete(TbClass tbClass) throws Exception{
+        int count=tbClassDAO.delete(tbClass);
+        BaseResult<Integer> result=new BaseResult<>();
+        result.setCode(count==1?200:500);
+        result.setSuccess(count==1);
+        result.setMessage(count==1?"删除成功":"删除失败");
+        result.setData(count);
+        return result;
+    }
+
 }

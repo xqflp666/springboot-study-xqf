@@ -24,4 +24,6 @@ public interface ClassService {
      */
 
     BaseResult<TbClass> add(TbClass tbClass) throws Exception;
+
+    BaseResult<Integer> delete(TbClass tbClass) throws Exception;
 }

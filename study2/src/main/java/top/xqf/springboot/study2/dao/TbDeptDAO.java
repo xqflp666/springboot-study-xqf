@@ -11,4 +11,6 @@ public interface TbDeptDAO {
     List<TbDept> querAll(TbDept dept) throws Exception;
 
     int add(TbDept dept) throws Exception;
+
+    int delete(TbDept dept) throws Exception;
 }
